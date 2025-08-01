@@ -64,7 +64,16 @@ const Navigation = () => {
               <MessageCircle className="h-4 w-4 mr-2" />
               Chat Now
             </Button>
-            <Button variant="hero" size="sm">
+            <Button
+              variant="hero"
+              size="sm"
+              onClick={() => {
+                const section = document.getElementById("contact");
+                if (section) {
+                  section.scrollIntoView({ behavior: "smooth" });
+                }
+              }}
+            >
               Book Session
             </Button>
           </div>
@@ -99,7 +108,16 @@ const Navigation = () => {
                   <MessageCircle className="h-4 w-4 mr-2" />
                   Chat Now
                 </Button>
-                <Button variant="hero" className="w-full">
+                <Button
+                  variant="hero"
+                  className="w-full"
+                  onClick={() => {
+                    const section = document.getElementById("contact");
+                    if (section) {
+                      section.scrollIntoView({ behavior: "smooth" });
+                    }
+                  }}
+                >
                   Book Session
                 </Button>
               </div>

@@ -89,7 +89,7 @@ const Hero = () => {
       <div className="relative z-10 container mx-auto px-4 text-center">
         <div className="max-w-4xl mx-auto animate-fade-in">
           {/* Badge */}
-          <div className="inline-flex items-center px-4 py-2 bg-primary/10 backdrop-blur-sm border border-primary/20 rounded-full mb-6">
+          <div className="inline-flex items-center px-4 py-2 bg-primary/10 backdrop-blur-sm border border-primary/20 rounded-full mb-6 mt-20">
             <Star className="h-4 w-4 text-primary mr-2" />
             <span className="text-primary font-medium">
               Sri Lanka's Premier Visual Studio
@@ -114,7 +114,12 @@ const Hero = () => {
               variant="hero"
               size="xl"
               className="animate-scale-in"
-              onClick={() => navigate("/booking")} // <-- Add this onClick
+              onClick={() => {
+                const section = document.getElementById("contact");
+                if (section) {
+                  section.scrollIntoView({ behavior: "smooth" });
+                }
+              }}
             >
               <Camera className="h-5 w-5 mr-2" />
               Book Your Session
@@ -169,7 +174,7 @@ const Hero = () => {
       </div> */}
 
       {/* Scroll Indicator */}
-      <div className="absolute bottom-1 left-1/2 transform -translate-x-1/2 text-white/60 animate-bounce">
+      <div className="absolute bottom-1 left-1/2 transform -translate-x-1/2 text-white/60 animate-bounce hidden sm:block">
         <div className="flex flex-col items-center">
           <span className="text-xs mb-1">Scroll to explore</span>
           <div className="w-4 h-6 border border-white/40 rounded-full flex justify-center">
