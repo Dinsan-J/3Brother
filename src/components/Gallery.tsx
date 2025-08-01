@@ -2,10 +2,16 @@ import React, { useState } from "react";
 import { Filter, Heart, Eye, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import weddingImage from "@/assets/portfolio-wedding.jpg";
+import weddingImage from "@/assets/g2-mobile.jpg";
 import fashionImage from "@/assets/g1.jpg";
-import videoImage from "@/assets/video-production.jpg";
+import videoImage from "@/assets/g3-mobile.jpg";
 import vimalImage from "@/assets/vimal.jpg"; // <-- Add this line
+
+// import heroSlide1Mobile from "@/assets/g1-mobile.jpg";
+// import heroSlide2Mobile from "@/assets/g2-mobile.jpg";
+// import heroSlide3Mobile from "@/assets/g3-mobile.jpg";
+// import heroSlide4Mobile from "@/assets/g4-mobile.jpg";
+// import heroSlide5Mobile from "@/assets/g5-mobile.jpg";
 
 const Gallery = () => {
   const [activeFilter, setActiveFilter] = useState("all");
