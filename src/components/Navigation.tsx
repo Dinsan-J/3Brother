@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Camera, MessageCircle } from "lucide-react";
+import logo from "@/assets/3bro.png";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -26,7 +27,7 @@ const Navigation = () => {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-background/95 backdrop-blur-md shadow-elegant"
+          ? "bg-black/60 backdrop-blur-md shadow-elegant"
           : "bg-transparent"
       }`}
     >
@@ -34,10 +35,11 @@ const Navigation = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <div className="flex items-center space-x-2">
-            <Camera className="h-8 w-8 text-primary" />
-            <span className="font-playfair text-2xl font-bold text-gradient">
-              3Brother Studio
-            </span>
+            <img
+              src={logo}
+              alt="3Brother Studio Logo"
+              className="h-14 w-auto  shadow"
+            />
           </div>
 
           {/* Desktop Navigation */}
@@ -47,7 +49,7 @@ const Navigation = () => {
                 key={item.label}
                 href={item.href}
                 className={`relative group px-1 ${
-                  isScrolled ? "text-foreground" : "text-white"
+                  isScrolled ? "text-white" : "text-white"
                 } hover:text-primary transition-colors duration-300 font-medium`}
               >
                 {item.label}
