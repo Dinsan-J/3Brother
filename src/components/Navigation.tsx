@@ -32,18 +32,18 @@ const Navigation = () => {
       }`}
     >
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-20 relative">
           {/* Logo */}
           <div className="flex items-center space-x-2">
             <img
               src={logo}
               alt="3Brother Studio Logo"
-              className="h-14 w-auto  shadow"
+              className="h-14 w-auto shadow"
             />
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-8 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
             {navItems.map((item) => (
               <a
                 key={item.label}

@@ -1,200 +1,259 @@
-import React, { useState } from 'react';
-import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
-import { Heart, Camera, Video, Users, Eye, ExternalLink } from 'lucide-react';
+import React, { useState } from "react";
+import { Filter, Heart, Eye, ExternalLink } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import weddingImage from "@/assets/portfolio-wedding.jpg";
+import fashionImage from "@/assets/g1.jpg";
+import videoImage from "@/assets/video-production.jpg";
 
 const Gallery = () => {
-  const [activeFilter, setActiveFilter] = useState('all');
+  const [activeFilter, setActiveFilter] = useState("all");
 
   const filters = [
-    { id: 'all', label: 'All Work', icon: Camera },
-    { id: 'weddings', label: 'Weddings', icon: Heart },
-    { id: 'events', label: 'Events', icon: Users },
-    { id: 'videos', label: 'Videos', icon: Video }
+    { id: "all", label: "All Work", count: 12 },
+    { id: "weddings", label: "Weddings", count: 6 },
+    { id: "portraits", label: "Portraits", count: 3 },
+    { id: "events", label: "Events", count: 2 },
+    { id: "commercial", label: "Commercial", count: 1 },
   ];
 
-  // Using placeholder images with appropriate aspect ratios
-  const galleryItems = [
+  const portfolioItems = [
     {
       id: 1,
-      category: 'weddings',
-      type: 'photo',
-      title: 'Romantic Beach Wedding',
-      client: 'Sarah & Michael',
-      image: 'https://images.unsplash.com/photo-1519741497674-611481863552?w=800&h=600&fit=crop',
-      featured: true
+      category: "weddings",
+      title: "Traditional Sri Lankan Wedding",
+      client: "Amara & Kasun",
+      image: weddingImage,
+      type: "Photography",
+      featured: true,
     },
     {
       id: 2,
-      category: 'events',
-      type: 'photo',
-      title: 'Corporate Gala Night',
-      client: 'Hilton Colombo',
-      image: 'https://images.unsplash.com/photo-1511578314322-379afb476865?w=800&h=600&fit=crop',
-      featured: false
+      category: "portraits",
+      title: "Fashion Portrait Session",
+      client: "Model Showcase",
+      image: fashionImage,
+      type: "Photography",
+      featured: false,
     },
     {
       id: 3,
-      category: 'weddings',
-      type: 'video',
-      title: 'Garden Wedding Film',
-      client: 'Priya & Rajesh',
-      image: 'https://images.unsplash.com/photo-1606216794074-735e91aa2c92?w=800&h=600&fit=crop',
-      featured: true
+      category: "commercial",
+      title: "Corporate Video Production",
+      client: "Tech Company",
+      image: videoImage,
+      type: "Videography",
+      featured: false,
     },
     {
       id: 4,
-      category: 'events',
-      type: 'photo',
-      title: 'Fashion Show Coverage',
-      client: 'Colombo Fashion Week',
-      image: 'https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=800&h=600&fit=crop',
-      featured: false
+      category: "weddings",
+      title: "Beach Wedding Ceremony",
+      client: "Nisha & Rajesh",
+      image: weddingImage,
+      type: "Photography & Video",
+      featured: true,
     },
     {
       id: 5,
-      category: 'weddings',
-      type: 'photo',
-      title: 'Traditional Kandyan Wedding',
-      client: 'Amara & Kasun',
-      image: 'https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=800&h=600&fit=crop',
-      featured: true
+      category: "events",
+      title: "Cultural Festival",
+      client: "Heritage Foundation",
+      image: fashionImage,
+      type: "Photography",
+      featured: false,
     },
     {
       id: 6,
-      category: 'videos',
-      type: 'video',
-      title: 'Brand Commercial',
-      client: 'Local Business',
-      image: 'https://images.unsplash.com/photo-1536240478700-b869070f9279?w=800&h=600&fit=crop',
-      featured: false
+      category: "portraits",
+      title: "Family Portrait Session",
+      client: "The Fernandos",
+      image: videoImage,
+      type: "Photography",
+      featured: false,
     },
     {
       id: 7,
-      category: 'events',
-      type: 'photo',
-      title: 'Birthday Celebration',
-      client: 'Private Client',
-      image: 'https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=800&h=600&fit=crop',
-      featured: false
+      category: "weddings",
+      title: "Modern Church Wedding",
+      client: "Sarah & Michael",
+      image: weddingImage,
+      type: "Photography & Video",
+      featured: false,
     },
     {
       id: 8,
-      category: 'weddings',
-      type: 'video',
-      title: 'Engagement Film',
-      client: 'Nina & David',
-      image: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=800&h=600&fit=crop',
-      featured: true
-    }
+      category: "events",
+      title: "Corporate Anniversary",
+      client: "Diamond Bank",
+      image: fashionImage,
+      type: "Photography & Video",
+      featured: false,
+    },
+    {
+      id: 9,
+      category: "portraits",
+      title: "Professional Headshots",
+      client: "Business Executive",
+      image: videoImage,
+      type: "Photography",
+      featured: false,
+    },
   ];
 
-  const filteredItems = activeFilter === 'all' 
-    ? galleryItems 
-    : galleryItems.filter(item => item.category === activeFilter);
+  const filteredItems =
+    activeFilter === "all"
+      ? portfolioItems
+      : portfolioItems.filter((item) => item.category === activeFilter);
 
   return (
-    <section id="gallery" className="py-20 bg-muted/30">
-      <div className="container mx-auto px-4">
-        {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16 animate-fade-in">
-          <h2 className="font-playfair text-4xl md:text-5xl font-bold text-foreground mb-6">
-            Our Creative 
-            <span className="text-gradient"> Portfolio</span>
+    <section id="gallery" className="py-20 bg-background">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Header */}
+        <div className="text-center mb-16 animate-fadeInUp">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+            Our{" "}
+            <span className="text-gradient" style={{ display: "inline-block" }}>
+              Portfolio
+            </span>
           </h2>
-          <p className="text-lg text-muted-foreground leading-relaxed">
-            Explore our collection of beautiful moments captured across weddings, events, 
-            and commercial projects that showcase our artistic vision and technical excellence.
+          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+            Explore our collection of beautiful moments captured across Sri
+            Lanka. Each image tells a unique story of love, celebration, and
+            artistry.
           </p>
         </div>
 
         {/* Filter Buttons */}
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
+        <div className="flex flex-wrap justify-center gap-3 mb-12 animate-fadeInUp">
           {filters.map((filter) => (
             <Button
               key={filter.id}
-              variant={activeFilter === filter.id ? "hero" : "outline"}
+              variant={activeFilter === filter.id ? "default" : "outline"}
               onClick={() => setActiveFilter(filter.id)}
-              className="transition-all duration-300"
+              className={`group transition-all duration-300 ${
+                activeFilter === filter.id
+                  ? "bg-accent text-accent-foreground hover:bg-accent/90"
+                  : "hover:border-accent hover:text-accent"
+              }`}
             >
-              <filter.icon className="h-4 w-4 mr-2" />
+              <Filter className="h-4 w-4 mr-2" />
               {filter.label}
+              <Badge
+                variant="secondary"
+                className={`ml-2 ${
+                  activeFilter === filter.id
+                    ? "bg-accent-foreground/10 text-accent-foreground"
+                    : "bg-muted text-muted-foreground"
+                }`}
+              >
+                {filter.count}
+              </Badge>
             </Button>
           ))}
         </div>
 
         {/* Gallery Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
           {filteredItems.map((item, index) => (
-            <div 
+            <div
               key={item.id}
-              className={`group relative overflow-hidden rounded-2xl shadow-elegant hover:shadow-glow transition-all duration-500 hover-lift ${
-                item.featured ? 'md:col-span-2 md:row-span-2' : ''
+              className={`group relative overflow-hidden rounded-xl cursor-pointer animate-stagger ${
+                item.featured ? "md:col-span-2 lg:col-span-1" : ""
               }`}
+              style={{ animationDelay: `${index * 0.1}s` }}
             >
-              {/* Image */}
-              <div className={`relative overflow-hidden ${item.featured ? 'h-96 md:h-full' : 'h-64'}`}>
-                <img 
-                  src={item.image} 
+              {/* Image Container */}
+              <div className="relative aspect-[4/5] overflow-hidden">
+                <img
+                  src={item.image}
                   alt={item.title}
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
-                
+
                 {/* Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                
-                {/* Badges */}
-                <div className="absolute top-4 left-4 flex gap-2">
-                  {item.featured && (
-                    <Badge variant="default" className="bg-primary">
+
+                {/* Featured Badge */}
+                {item.featured && (
+                  <div className="absolute top-4 left-4">
+                    <Badge className="bg-accent text-accent-foreground">
+                      <Heart className="h-3 w-3 mr-1 fill-current" />
                       Featured
                     </Badge>
-                  )}
-                  <Badge variant="secondary" className="bg-background/80">
-                    {item.type === 'video' ? 'Video' : 'Photo'}
+                  </div>
+                )}
+
+                {/* Category Badge */}
+                <div className="absolute top-4 right-4">
+                  <Badge
+                    variant="secondary"
+                    className="bg-white/10 backdrop-blur-sm text-white border-white/20"
+                  >
+                    {item.type}
                   </Badge>
                 </div>
 
-                {/* Content Overlay */}
-                <div className="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-6 group-hover:translate-y-0 transition-transform duration-300">
-                  <h3 className="font-playfair text-xl md:text-2xl font-semibold mb-2">
-                    {item.title}
-                  </h3>
-                  <p className="text-white/80 mb-4">{item.client}</p>
-                  
-                  <div className="flex gap-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
-                    <Button size="sm" variant="hero">
-                      <Eye className="h-4 w-4 mr-2" />
+                {/* Hover Actions */}
+                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="flex space-x-3">
+                    <Button className="bg-white/20 backdrop-blur-sm text-white hover:bg-white hover:text-primary">
+                      <Eye className="h-4 w-4 mr-1" />
                       View
                     </Button>
-                    <Button size="sm" variant="outline" className="border-white text-white hover:bg-white hover:text-secondary">
-                      <ExternalLink className="h-4 w-4" />
+                    <Button className="bg-white/20 backdrop-blur-sm text-white hover:bg-white hover:text-primary">
+                      <ExternalLink className="h-4 w-4 mr-1" />
+                      Details
                     </Button>
                   </div>
+                </div>
+
+                {/* Content */}
+                <div className="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-6 group-hover:translate-y-0 transition-transform duration-300">
+                  <h3 className="text-lg font-semibold mb-1">{item.title}</h3>
+                  <p className="text-sm text-gray-300">{item.client}</p>
                 </div>
               </div>
             </div>
           ))}
         </div>
 
-        {/* Call to Action */}
-        <div className="text-center bg-card rounded-2xl p-8 md:p-12 shadow-elegant">
-          <h3 className="font-playfair text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Love What You See?
-          </h3>
-          <p className="text-muted-foreground text-lg mb-6 max-w-2xl mx-auto">
-            Let's create something beautiful together. Browse our complete portfolio 
-            or get in touch to discuss your upcoming project.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="hero" size="lg">
-              <Camera className="h-5 w-5 mr-2" />
-              View Full Portfolio
-            </Button>
-            <Button variant="outline" size="lg">
-              <Heart className="h-5 w-5 mr-2" />
-              Start Your Project
-            </Button>
+        {/* Load More / View All */}
+        <div className="text-center">
+          <Button
+            size="lg"
+            variant="outline"
+            className="btn-premium group"
+            onClick={() => {
+              /* Add your view all logic here */
+            }}
+          >
+            View Complete Portfolio
+            <ExternalLink className="ml-2 h-5 w-5 group-hover:scale-110 transition-transform" />
+          </Button>
+        </div>
+
+        {/* Portfolio Stats */}
+        <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+          <div className="animate-stagger">
+            <div className="text-3xl font-bold text-accent mb-2">500+</div>
+            <div className="text-sm text-muted-foreground">Wedding Photos</div>
+          </div>
+          <div className="animate-stagger">
+            <div className="text-3xl font-bold text-accent mb-2">200+</div>
+            <div className="text-sm text-muted-foreground">Event Coverages</div>
+          </div>
+          <div className="animate-stagger">
+            <div className="text-3xl font-bold text-accent mb-2">100+</div>
+            <div className="text-sm text-muted-foreground">
+              Portrait Sessions
+            </div>
+          </div>
+          <div className="animate-stagger">
+            <div className="text-3xl font-bold text-accent mb-2">50+</div>
+            <div className="text-sm text-muted-foreground">
+              Video Productions
+            </div>
           </div>
         </div>
       </div>
