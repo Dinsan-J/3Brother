@@ -9,16 +9,23 @@ import {
   ChevronRight,
 } from "lucide-react";
 import { useNavigate } from "react-router-dom"; // <-- Add this import
-import heroSlide1 from "@/assets/hero-slide-1.jpg";
-import heroSlide2 from "@/assets/hero-slide-2.jpg";
-import heroSlide3 from "@/assets/hero-slide-3.jpg";
-import heroSlide4 from "@/assets/hero-slide-4.jpg";
+import heroSlide1 from "@/assets/g1.jpg";
+import heroSlide2 from "@/assets/g2.jpg";
+import heroSlide3 from "@/assets/g3.jpg";
+import heroSlide4 from "@/assets/g4.jpg";
+import heroSlide5 from "@/assets/g5.jpg";
+import heroSlide1Mobile from "@/assets/g1.jpg";
+import heroSlide2Mobile from "@/assets/g2.jpg";
+import heroSlide3Mobile from "@/assets/g3.jpg";
+import heroSlide4Mobile from "@/assets/g4.jpg";
+import heroSlide5Mobile from "@/assets/g5.jpg";
+import { useIsMobile } from "@/hooks/useIsMobile";
 
 const Hero = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const navigate = useNavigate(); // <-- Add this line
+  const isMobile = useIsMobile();
 
-  const slides = [
+  const slidesDesktop = [
     {
       image: heroSlide1,
       title: "Wedding Photography",
@@ -39,7 +46,42 @@ const Hero = () => {
       title: "Portrait Sessions",
       subtitle: "Professional studio photography",
     },
+    {
+      image: heroSlide5,
+      title: "Drone Cinematography",
+      subtitle: "Aerial views for breathtaking moments",
+    },
   ];
+
+  const slidesMobile = [
+    {
+      image: heroSlide1Mobile,
+      title: "Wedding Photography",
+      subtitle: "Capturing love stories with cinematic elegance",
+    },
+    {
+      image: heroSlide2Mobile,
+      title: "Professional Videography",
+      subtitle: "Creating stunning visual narratives",
+    },
+    {
+      image: heroSlide3Mobile,
+      title: "Event Coverage",
+      subtitle: "Documenting your special celebrations",
+    },
+    {
+      image: heroSlide4Mobile,
+      title: "Portrait Sessions",
+      subtitle: "Professional studio photography",
+    },
+    {
+      image: heroSlide5Mobile,
+      title: "Drone Cinematography",
+      subtitle: "Aerial views for breathtaking moments",
+    },
+  ];
+
+  const slides = isMobile ? slidesMobile : slidesDesktop;
 
   // Auto-slide functionality
   useEffect(() => {
