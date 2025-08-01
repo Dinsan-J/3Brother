@@ -14,11 +14,11 @@ import heroSlide2 from "@/assets/g2.jpg";
 import heroSlide3 from "@/assets/g3.jpg";
 import heroSlide4 from "@/assets/g4.jpg";
 import heroSlide5 from "@/assets/g5.jpg";
-import heroSlide1Mobile from "@/assets/g1.jpg";
-import heroSlide2Mobile from "@/assets/g2.jpg";
-import heroSlide3Mobile from "@/assets/g3.jpg";
-import heroSlide4Mobile from "@/assets/g4.jpg";
-import heroSlide5Mobile from "@/assets/g5.jpg";
+import heroSlide1Mobile from "@/assets/g1-mobile.jpg";
+import heroSlide2Mobile from "@/assets/g1-mobile.jpg";
+import heroSlide3Mobile from "@/assets/g1-mobile.jpg";
+import heroSlide4Mobile from "@/assets/g1-mobile.jpg";
+import heroSlide5Mobile from "@/assets/g1-mobile.jpg";
 import { useIsMobile } from "@/hooks/useIsMobile";
 
 const Hero = () => {
