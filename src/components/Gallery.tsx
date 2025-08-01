@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import weddingImage from "@/assets/portfolio-wedding.jpg";
 import fashionImage from "@/assets/g1.jpg";
 import videoImage from "@/assets/video-production.jpg";
+import vimalImage from "@/assets/vimal.jpg"; // <-- Add this line
 
 const Gallery = () => {
   const [activeFilter, setActiveFilter] = useState("all");
@@ -96,6 +97,16 @@ const Gallery = () => {
       title: "Professional Headshots",
       client: "Business Executive",
       image: videoImage,
+      type: "Photography",
+      featured: false,
+    },
+    // Add a new item using vimal.jpg
+    {
+      id: 10,
+      category: "portraits",
+      title: "Vimal's Portrait",
+      client: "Vimal",
+      image: vimalImage,
       type: "Photography",
       featured: false,
     },
