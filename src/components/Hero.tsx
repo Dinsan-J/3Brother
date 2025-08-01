@@ -15,10 +15,10 @@ import heroSlide3 from "@/assets/g3.jpg";
 import heroSlide4 from "@/assets/g4.jpg";
 import heroSlide5 from "@/assets/g5.jpg";
 import heroSlide1Mobile from "@/assets/g1-mobile.jpg";
-import heroSlide2Mobile from "@/assets/g1-mobile.jpg";
-import heroSlide3Mobile from "@/assets/g1-mobile.jpg";
-import heroSlide4Mobile from "@/assets/g1-mobile.jpg";
-import heroSlide5Mobile from "@/assets/g1-mobile.jpg";
+import heroSlide2Mobile from "@/assets/g2-mobile.jpg";
+import heroSlide3Mobile from "@/assets/g3-mobile.jpg";
+import heroSlide4Mobile from "@/assets/g4-mobile.jpg";
+import heroSlide5Mobile from "@/assets/g5-mobile.jpg";
 import { useIsMobile } from "@/hooks/useIsMobile";
 
 const Hero = () => {
@@ -133,19 +133,21 @@ const Hero = () => {
           {/* Badge */}
           <div className="inline-flex items-center px-4 py-2 bg-primary/10 backdrop-blur-sm border border-primary/20 rounded-full mb-6 mt-20">
             <Star className="h-4 w-4 text-primary mr-2" />
-            <span className="text-primary font-medium">
+            <span className="text-primary font-medium opacity-80">
               Sri Lanka's Premier Visual Studio
             </span>
           </div>
 
           {/* Main Heading */}
-          <h1 className="font-playfair text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
-            <span className="text-gradient block mb-2">3Brother Studio</span>
-            Capturing Your Perfect Moments
+          <h1 className="font-playfair text-5xl md:text-7xl font-bold text-white mb-6 leading-tight opacity-90">
+            <span className="text-gradient block mb-2 opacity-90">
+              3Brother Studio
+            </span>
+            <span className="opacity-80">Capturing Your Perfect Moments</span>
           </h1>
 
           {/* Dynamic Subtitle */}
-          <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto leading-relaxed opacity-70">
             {slides[currentSlide].subtitle} - Creating cinematic memories that
             last a lifetime.
           </p>
@@ -179,22 +181,24 @@ const Hero = () => {
           {/* Stats */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-2xl mx-auto">
             <div className="text-center animate-slide-up">
-              <div className="text-3xl md:text-4xl font-bold text-primary mb-2">
+              <div className="text-3xl md:text-4xl font-bold text-primary mb-2 opacity-80">
                 500+
               </div>
-              <div className="text-white/80">Happy Couples Trust Us</div>
+              <div className="text-white/80 opacity-60">
+                Happy Couples Trust Us
+              </div>
             </div>
             <div className="text-center animate-slide-up">
-              <div className="text-3xl md:text-4xl font-bold text-primary mb-2">
+              <div className="text-3xl md:text-4xl font-bold text-primary mb-2 opacity-80">
                 1000+
               </div>
-              <div className="text-white/80">Events Captured</div>
+              <div className="text-white/80 opacity-60">Events Captured</div>
             </div>
             <div className="text-center animate-slide-up">
-              <div className="text-3xl md:text-4xl font-bold text-primary mb-2">
+              <div className="text-3xl md:text-4xl font-bold text-primary mb-2 opacity-80">
                 5+
               </div>
-              <div className="text-white/80">Years Experience</div>
+              <div className="text-white/80 opacity-60">Years Experience</div>
             </div>
           </div>
         </div>
